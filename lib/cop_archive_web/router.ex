@@ -16,7 +16,7 @@ defmodule CopArchiveWeb.Router do
   scope "/cop-archive", CopArchiveWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/", ForumController, :index
 
     resources "/forum", ForumController, only: [:index, :show]
     resources "/topic", TopicController, only: [:index, :show]

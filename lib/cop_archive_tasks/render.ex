@@ -12,21 +12,10 @@ defmodule Mix.Tasks.Render do
     IO.puts("Rendering forum content to files...")
     mkdirs()
     copy_css()
-    render_menu()
     render_forums()
     render_topics()
     render_replies()
     render_users()
-  end
-
-  defp render_menu() do
-    str =
-      Phoenix.View.render_to_string(PageView, "index.html",
-        conn: conn(),
-        layout: {LayoutView, "app.html"}
-      )
-
-    write("/index", str)
   end
 
   defp render_forums() do
@@ -40,6 +29,7 @@ defmodule Mix.Tasks.Render do
       )
 
     write("/forum/index", str)
+    write("/index", str)
 
     Enum.each(forums, fn forum ->
       str =
