@@ -11,6 +11,7 @@ defmodule Mix.Tasks.Render do
     Mix.Task.run("app.start")
     IO.puts("Rendering forum content to files...")
     mkdirs()
+    copy_css()
     render_menu()
     render_forums()
     render_topics()
@@ -132,6 +133,11 @@ defmodule Mix.Tasks.Render do
     File.mkdir("#{path()}/topic")
     File.mkdir("#{path()}/reply")
     File.mkdir("#{path()}/user")
+  end
+
+  defp copy_css() do
+    File.mkdir("#{path()}/css")
+    File.copy!("priv/static/css/app.css", "#{path()}/css/app.css")
   end
 
   defp conn() do
