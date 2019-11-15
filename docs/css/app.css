@@ -10546,8 +10546,15 @@ a.branch-name {
 
 .grid-top-menu {
   display: grid;
-  grid-template-columns: 1fr 100px 160px; }
+  grid-template-columns: 32px 1fr 100px 160px; }
+
+#logo {
+  width: 32px;
+  height: 32px; }
 
 .post-content ul {
   margin-left: 20px; }
+
+.Header {
+  background-color: #007BFF; }
 
