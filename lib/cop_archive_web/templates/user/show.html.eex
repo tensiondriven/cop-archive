@@ -36,14 +36,16 @@
     <%= Enum.count(@user.replies) %> Replies
   </div>
   <%= for reply <- @user.replies do %>
-    <div class="Box-row grid-reply">
-      <div>
-      <%= link reply.topic.subject |> strip_tags() |> truncate(length: 80), to: Routes.topic_path(@conn, :show, reply.topic) %>
-      <div>
-        <%= date reply.liveDatetime %>
+    <%= if reply.topic do %>
+      <div class="Box-row grid-reply">
+        <div>
+        <%= link reply.topic.subject |> strip_tags() |> truncate(length: 80), to: Routes.topic_path(@conn, :show, reply.topic) %>
+        <div>
+          <%= date reply.liveDatetime %>
+        </div>
       </div>
-    </div>
-      <%= link reply.body |> strip_tags() |> truncate(length: 300), to: Routes.reply_path(@conn, :show, reply) %>
-    </div>
+        <%= link reply.body |> strip_tags() |> truncate(length: 300), to: Routes.reply_path(@conn, :show, reply) %>
+      </div>
+    <% end %>
   <% end %>
 </div>

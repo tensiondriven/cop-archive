@@ -20,7 +20,7 @@ defmodule CopArchiveWeb.Router do
 
     resources "/forum", ForumController, only: [:index, :show]
     resources "/topic", TopicController, only: [:index, :show]
-    resources "/reply", ReplyController, only: [:index, :show]
+    resources "/reply", ReplyController, only: [:show]
     resources "/user", UserController, only: [:index, :show]
   end
 

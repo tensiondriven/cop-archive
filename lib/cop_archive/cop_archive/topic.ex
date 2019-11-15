@@ -52,4 +52,5 @@ defmodule CopArchive.Topic do
 
   def apply_clause(query, :id, oid), do: Q.where(query, [r], r.oid == ^oid)
   def apply_clause(query, :slug, slug), do: Q.where(query, [r], r.prettyUrlString == ^slug)
+  def apply_clause(query, :order, :subject), do: Q.order_by(query, [a], asc: a.subject)
 end

@@ -4,7 +4,7 @@ defmodule CopArchiveWeb.TopicController do
   alias CopArchive.Topic
 
   def index(conn, _params) do
-    topics = Topic.all(order: :date, preload: [:forum, :composition, :user, replies: :user])
+    topics = Topic.all(order: :subject, preload: [:forum, :composition, :user, replies: :user])
     render(conn, "index.html", topics: topics)
   end
 
