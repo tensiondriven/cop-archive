@@ -79,5 +79,5 @@ $content-area-min-width-for-phone-only: $for-phone-only - $sidebar-min-width;
 
 .grid-top-menu {
   display: grid;
-  grid-template-columns: 1fr 100px 160px;
+  grid-template-columns: 32px 1fr 100px 160px;
 }
