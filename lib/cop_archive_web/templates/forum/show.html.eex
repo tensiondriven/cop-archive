@@ -1,7 +1,7 @@
 <nav class="UnderlineNav mb-4">
   <div class="UnderlineNav-body">
-    <span role="tab" title="<%= @forum.name %>" class="UnderlineNav-item selected h4">
-      <%= @forum.name %>
+    <span role="tab" title="<%= format @forum.name %>" class="UnderlineNav-item selected h4">
+      <%= format @forum.name %>
     </span>
     <a href="/cop-archive/forum" role="tab" title="Forum List" class="UnderlineNav-item h4">
       Forum List
