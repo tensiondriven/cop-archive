@@ -1,6 +1,5 @@
 defmodule CopArchive.User do
   use Ecto.Schema
-  import Ecto.Changeset
   alias Ecto.Query, as: Q
   use CopArchive.TopherDB
 
@@ -55,53 +54,9 @@ defmodule CopArchive.User do
     field :registrationDate, :naive_datetime
     has_many :area_users, CopArchive.AreaUser
     has_many :topics, through: [:area_users, :topics]
+    has_many :replies, CopArchive.Reply, foreign_key: :userOid
   end
 
   def apply_clause(query, :id, oid), do: Q.where(query, [r], r.oid == ^oid)
   def apply_clause(query, :order, :name), do: Q.order_by(query, [a], asc: a.displayName)
-
-  @doc false
-  def changeset(post, attrs) do
-    post
-    |> cast(attrs, [])
-    |> validate_required([])
-  end
 end
-
-# +-------------------------------+
-# | Tables_in_cop                 |
-# +-------------------------------+
-# | BlogEntry                     |
-# | CalendarEventContent          |
-# | ChatEventContent              |
-# | ChatRoomContent               |
-# | Composition                   |
-# | CompositionMentions           |
-# | CompositionReport             |
-# | CompositionStats              |
-# | DatabaseRecord                |
-# | DialogCmp                     |
-# | FilePointer                   |
-# | FilePointerSet                |
-# | ForumTopic                    |
-# | QuestionSharkDocumentCmp      |
-# | QuestionSharkProductFaqTopic  |
-# | QuestionSharkTopic            |
-# | QuestionSharkTopicEvent       |
-# | Reply                         |
-# | ReplyCcEmailAddress           |
-# | ReplyMentions                 |
-# | ReplyReport                   |
-# | ReplyStats                    |
-# | Survey                        |
-# | SurveyAnswer                  |
-# | SurveyQuestion                |
-# | SurveyQuestionResponse        |
-# | SurveyQuestionWriteInResponse |
-# | SurveyResponse                |
-# | UserLikedComposition          |
-# | UserLikedReply                |
-# | UserWallTopic                 |
-# | WatchedContent                |
-# +-------------------------------+
-# 32 rows in set (0.00 sec)

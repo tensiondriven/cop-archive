@@ -1,25 +1,16 @@
 defmodule CopArchive.TopherDB do
   alias CopArchive.Repo
-  # alias Ecto.Query, as: Q
 
   defmacro __using__(opts) do
     quote do
       require Ecto.Query
 
-      # def get(list) when is_list(list),
-      #   do: raise("Can't pass a list to get, did you mean get_by?")
-
-      # def get!(list) when is_list(list),
-      #   do: raise("Can't pass a list to get!, did you mean get_by!?")
-
-      def get(id), do: CopArchive.Repo.get(__MODULE__, id)
-      def get!(id), do: CopArchive.Repo.get!(__MODULE__, id)
-      def get_by(filt), do: __MODULE__ |> apply_clauses(filt) |> Repo.first()
-      def get_by!(filt), do: __MODULE__ |> apply_clauses(filt) |> Repo.first!()
+      def get(id, filt \\ []), do: get_by(Keyword.merge([id: id], filt))
+      def get!(id, filt \\ []), do: get_by!(Keyword.merge([id: id], filt))
+      def get_by(filt), do: __MODULE__ |> apply_clauses(filt) |> Repo.one()
+      def get_by!(filt), do: __MODULE__ |> apply_clauses(filt) |> Repo.one()
       def all(filt \\ []), do: __MODULE__ |> apply_clauses(filt) |> Repo.all()
-      def count(filt \\ []), do: __MODULE__ |> apply_clauses(filt) |> Repo.count()
-
-      # def test(filt), do: __MODULE__ |> apply_clauses(filt) # Generate query structure but don't execute
+      # def count(filt \\ []), do: __MODULE__ |> apply_clauses(filt) |> Repo.count()
 
       def apply_clause(query, :preload, preloads), do: Ecto.Query.preload(query, ^preloads)
 

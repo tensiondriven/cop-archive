@@ -10,9 +10,16 @@
   <dd><%= @user.registrationDate |> date() %></dd>
 </dl>
 
-<h4>Topics</h4>
+<h4><%= Enum.count(@user.topics) %> Topics</h4>
 <ul>
   <%= for topic <- @user.topics do %>
-    <li><%= link topic.subject, to: Routes.topic_path(@conn, :show, topic) %></li>
+    <li><%= link format(topic.subject), to: Routes.topic_path(@conn, :show, topic) %></li>
+  <% end %>
+</ul>
+
+<h4><%= Enum.count(@user.replies) %> Replies</h4>
+<ul>
+  <%= for reply <- @user.replies do %>
+    <li><%= link reply.body |> strip_tags() |> truncate(length: 100), to: Routes.reply_path(@conn, :show, reply) %></li>
   <% end %>
 </ul>

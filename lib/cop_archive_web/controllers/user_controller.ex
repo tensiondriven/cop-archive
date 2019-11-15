@@ -1,7 +1,6 @@
 defmodule CopArchiveWeb.UserController do
   use CopArchiveWeb, :controller
 
-  alias CopArchive.Repo
   alias CopArchive.User
 
   def index(conn, _params) do
@@ -10,9 +9,7 @@ defmodule CopArchiveWeb.UserController do
   end
 
   def show(conn, %{"id" => id}) do
-    user =
-      User.get(id)
-      |> Repo.preload(:topics)
+    user = User.get(id, preload: [:topics, :replies])
 
     render(conn, "show.html", user: user)
   end

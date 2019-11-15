@@ -2,6 +2,10 @@
 
 <ul>
   <%= for topic <- @topics do %>
-    <li><%= link topic.subject, to: Routes.topic_path(@conn, :show, topic) %></li>
+    <%= if topic.prettyUrlString != nil do %>
+      <li><%= Enum.count(topic.replies) %> <%= link topic.subject, to: Routes.topic_path(@conn, :show, topic) %></li>
+    <% else %>
+    <li><%= Enum.count(topic.replies) %> <%= topic.subject %></li>
+    <% end %>
   <% end %>
 </ul>

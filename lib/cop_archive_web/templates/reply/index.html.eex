@@ -1,0 +1,7 @@
+<h2>All Replies</h2>
+
+<ul>
+  <%= for reply <- @replies do %>
+    <li><%= link reply.oid, to: Routes.reply_path(@conn, :show, reply) %></li>
+  <% end %>
+</ul>

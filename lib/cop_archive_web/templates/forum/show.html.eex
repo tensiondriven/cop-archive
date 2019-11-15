@@ -4,10 +4,10 @@
   <dd><%= @forum.name %></dd>
 
   <dt>Description</dt>
-  <dd><%= @forum.description |> raw() %></dd>
+  <dd><%= format @forum.description %></dd>
 
   <dt>Intro</dt>
-  <dd><%= @forum.intro |> raw() %></dd>
+  <dd><%= format @forum.intro %></dd>
 </dl>
 
 <h4>Topics</h4>

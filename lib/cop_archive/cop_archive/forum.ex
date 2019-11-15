@@ -1,6 +1,5 @@
 defmodule CopArchive.Forum do
   use Ecto.Schema
-  import Ecto.Changeset
   alias Ecto.Query, as: Q
   use CopArchive.TopherDB
 
@@ -41,11 +40,4 @@ defmodule CopArchive.Forum do
 
   def apply_clause(query, :id, oid), do: Q.where(query, [r], r.oid == ^oid)
   def apply_clause(query, :order, _), do: Q.order_by(query, [a], asc: a.threadingOrder)
-
-  @doc false
-  def changeset(post, attrs) do
-    post
-    |> cast(attrs, [])
-    |> validate_required([])
-  end
 end

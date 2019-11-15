@@ -1,10 +1,9 @@
 defmodule CopArchive.Topic do
   use Ecto.Schema
-  import Ecto.Changeset
   alias Ecto.Query, as: Q
   use CopArchive.TopherDB
 
-  @derive {Phoenix.Param, key: :oid}
+  @derive {Phoenix.Param, key: :prettyUrlString}
   @primary_key {:oid, :integer, autogenerate: false}
 
   #  +-------------------------+-------------------------------------------------+------+-----+---------+-------+
@@ -39,20 +38,18 @@ defmodule CopArchive.Topic do
     field :extract, :string
     field :liveDatetime, :naive_datetime
     field :lastUpdateDatetime, :naive_datetime
-    # belongs_to :comp, CopArchive.Composition, foriegn_key: "oid"
+    field :prettyUrlString, :string
+
     belongs_to :area_user, CopArchive.AreaUser, foreign_key: :areaUserRlm_oid, references: :oid
     has_one :user, through: [:area_user, :user]
+
     has_one :forum_content, CopArchive.ForumContent, foreign_key: :forumTopicContent_oid
     has_one :forum, through: [:forum_content, :forum]
+
+    has_many :replies, CopArchive.Reply, foreign_key: :composition_oid, references: :oid
   end
 
   def apply_clause(query, :id, oid), do: Q.where(query, [r], r.oid == ^oid)
+  def apply_clause(query, :slug, slug), do: Q.where(query, [r], r.prettyUrlString == ^slug)
   def apply_clause(query, :order, :date), do: Q.order_by(query, [a], desc: a.liveDatetime)
-
-  @doc false
-  def changeset(post, attrs) do
-    post
-    |> cast(attrs, [])
-    |> validate_required([])
-  end
 end

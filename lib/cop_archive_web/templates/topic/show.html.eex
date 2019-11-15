@@ -1,24 +1,37 @@
 <h2>Topic: <%= raw(@topic.subject) %></h2>
 <dl>
-
+  <dt>oid</dt>
+  <dd><%= @topic.oid %></dd>
 
   <dt>Forum</dt>
-  <dd><%= link @topic.forum.name, to: Routes.forum_path(@conn, :show, @topic.forum) %></dd>
+  <dd><%= unless @topic.forum, do: "NIL", else: link @topic.forum.name, to: Routes.forum_path(@conn, :show, @topic.forum) %></dd>
 
   <dt>Subject</dt>
-  <dd><%= raw(@topic.subject) %></dd>
+  <dd><%= format @topic.subject %></dd>
 
   <dt>Extract</dt>
-  <dd><%= raw(@topic.extract) %></dd>
+  <dd><%= format  @topic.extract %></dd>
 
   <dt>User</dt>
   <dd><%= link @topic.user.displayName, to: Routes.user_path(@conn, :show, @topic.user) %></dd>
 
   <dt>Published</dt>
-  <dd><%= @topic.liveDatetime |> date() %></dd>
+  <dd><%= date @topic.liveDatetime %></dd>
 
   <dt>Last Updated</dt>
-  <dd><%= @topic.lastUpdateDatetime |> date() %></dd>
+  <dd><%= date @topic.lastUpdateDatetime %></dd>
 </dl>
 
-REPLIES
+<h4><%= Enum.count(@topic.replies) %> Replies</h4>
+<ol>
+  <%= for reply <- @topic.replies do %>
+    <li>
+      <ul>
+        <%= link reply.user.displayName, to: Routes.user_path(@conn, :show, reply.user) %>
+        <%= date reply.liveDatetime %>
+        <br/>
+        <%= format reply.body %>
+      </ul>
+    </li>
+  <% end %>
+</ol>

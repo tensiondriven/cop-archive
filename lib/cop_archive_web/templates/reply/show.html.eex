@@ -1,0 +1,17 @@
+<h2>Reply</h2>
+<dl>
+  <dt>oid</dt>
+  <dd><%= @reply.oid %></dd>
+
+  <dt>Topic Subject</dt>
+  <dd><%= link @reply.topic.subject, to: Routes.topic_path(@conn, :show, @reply.topic) %></dd>
+
+  <dt>User</dt>
+  <dd><%= link @reply.user.displayName, to: Routes.user_path(@conn, :show, @reply.user) %></dd>
+
+  <dt>Published</dt>
+  <dd><%= date @reply.liveDatetime %></dd>
+
+  <dt>Body</dt>
+  <dd><%= format @reply.body %></dd>
+</dl>

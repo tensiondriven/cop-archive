@@ -1,6 +1,5 @@
 defmodule CopArchive.ForumContent do
   use Ecto.Schema
-  import Ecto.Changeset
   alias Ecto.Query, as: Q
   use CopArchive.TopherDB
 

@@ -3,5 +3,6 @@
 <ul>
     <li><%= link "Forums", to: Routes.forum_path(@conn, :index) %></li>
     <li><%= link "Topics", to: Routes.topic_path(@conn, :index) %></li>
+    <li><%= link "Replies", to: Routes.reply_path(@conn, :index) %></li>
     <li><%= link "Users", to: Routes.user_path(@conn, :index) %></li>
 </ul>

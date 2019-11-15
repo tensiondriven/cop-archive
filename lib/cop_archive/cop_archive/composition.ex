@@ -1,44 +1,34 @@
 defmodule CopArchive.Composition do
   use Ecto.Schema
-  import Ecto.Changeset
   alias Ecto.Query, as: Q
   use CopArchive.TopherDB
 
   @primary_key {:oid, :integer, autogenerate: false}
 
-  # | oid                   | bigint(20)
-  # | body                  | mediumtext
-  # | collapseAttachmentBox | bit(1)
-  # | editDatetime          | datetime
-  # | editorUserOid         | bigint(20)
-  # | guestName             | varchar(40)
-  # | hasSignature          | bit(1)
-  # | lastActivityIp        | varchar(15)
-  # | liveDatetime          | datetime
-  # | moderationStatus      | enum
-  # | postBodySource        | tinyint(4)
-  # | postByEmail           | bit(1)
-  # | threadingOrder        | int(11)
-  # | userOid               | bigint(20)
-  # | whisper               | bit(1)
-  # | composition_oid       | bigint(20)
-  # | filePointerSet_oid    | bigint(20)
-  # | forkedComposition_oid | bigint(20)
-  # | mentions_oid          | bigint(20)
-  #
+  # +-----------------------+-------------+------+-----+---------+-------+
+  # | Field                 | Type        | Null | Key | Default | Extra |
+  # +-----------------------+-------------+------+-----+---------+-------+
+  # | oid                   | bigint(20)  | NO   | PRI | NULL    |       |
+  # | areaOid               | bigint(20)  | NO   | MUL | NULL    |       | x
+  # | body                  | mediumtext  | NO   |     | NULL    |       |
+  # | collapseAttachmentBox | bit(1)      | NO   |     | NULL    |       |
+  # | compositionType       | int(11)     | YES  |     | NULL    |       |
+  # | editDatetime          | datetime    | YES  |     | NULL    |       |
+  # | editorUserOid         | bigint(20)  | YES  |     | NULL    |       |
+  # | guestName             | varchar(40) | YES  |     | NULL    |       |
+  # | hasSignature          | bit(1)      | NO   |     | NULL    |       |
+  # | postBodySource        | tinyint(4)  | NO   |     | NULL    |       |
+  # | postByEmail           | bit(1)      | NO   |     | NULL    |       |
+  # | userOid               | bigint(20)  | YES  |     | NULL    |       |
+  # | filePointerSet_oid    | bigint(20)  | YES  | MUL | NULL    |       |
+  # | mentions_oid          | bigint(20)  | YES  |     | NULL    |       |
+  # +-----------------------+-------------+------+-----+---------+-------+
 
-  schema "Reply" do
+  schema "Composition" do
     field :body, :string
   end
 
   def apply_clause(query, :id, oid), do: Q.where(query, [r], r.oid == ^oid)
-
-  @doc false
-  def changeset(post, attrs) do
-    post
-    |> cast(attrs, [])
-    |> validate_required([])
-  end
 end
 
 # +-------------------------------+
