@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/cop-archive/css/app.css") %>"/>
   </head>
   <body>
-    <main role="main" class="container">
+    <main role="main" class="container p-4 ml-2">
       <h3>Holacracy Community of Practice Archive, 2015-2019</h3>
       <%= render @view_module, @view_template, assigns %>
       <hr>

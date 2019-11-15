@@ -2,7 +2,8 @@ defmodule CopArchiveWeb.SharedView do
   import Phoenix.HTML, only: [raw: 1]
 
   def date(datetime) do
-    Timex.format!(datetime, "%Y-%m-%d (%m/%d/%Y)", :strftime)
+    # Timex.format!(datetime, "%Y-%m-%d (%m/%d/%Y)", :strftime)
+    Timex.format!(datetime, "%m/%d/%Y", :strftime)
   end
 
   def format(string) do

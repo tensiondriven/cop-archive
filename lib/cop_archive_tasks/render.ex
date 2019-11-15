@@ -30,7 +30,7 @@ defmodule Mix.Tasks.Render do
   end
 
   defp render_forums() do
-    forums = Forum.all(order: :date, preload: [:topics])
+    forums = Forum.all(order: :date, preload: [topics: :user])
 
     str =
       Phoenix.View.render_to_string(ForumView, "index.html",

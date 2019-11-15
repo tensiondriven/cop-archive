@@ -1,3 +1,5 @@
 /* This file is for your main application css. */
 
-@import "general.scss"
+@import "@primer/css/index.scss";
+@import "grid.scss";
+@import "general.scss";

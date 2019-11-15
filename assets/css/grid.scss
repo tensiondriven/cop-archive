@@ -1,0 +1,73 @@
+/* Layout & Breakpoints */
+/* Cribbed from https://www.freecodecamp.org/news/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862/ */
+
+$for-phone-only: 599px;
+$tablet-portrait-and-up: 600px;
+
+$sidebar-min-width: 300px;
+$content-area-min-width-for-phone-only: $for-phone-only - $sidebar-min-width;
+
+@mixin for-phone-only {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+
+@mixin for-tablet-portrait-and-up {
+  @media (min-width: $tablet-portrait-and-up) {
+    @content;
+  }
+}
+
+@mixin for-tablet-landscape-and-up {
+  @media (min-width: 900px) {
+    @content;
+  }
+}
+
+@mixin for-desktop-and-up {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin for-big-desktop-and-up {
+  @media (min-width: 1800px) {
+    @content;
+  }
+}
+
+/* **************************************************** */
+
+
+.grid-1-1 {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@include for-tablet-landscape-and-up {
+  .grid-1-1 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.grid-1-2 {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.grid-1-3 {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+.grid-2-1 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-column-gap: 8px;
+}
+
+.grid-4-1-1 {
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr;
+}

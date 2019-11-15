@@ -4,12 +4,12 @@ defmodule CopArchiveWeb.ForumController do
   alias CopArchive.Forum
 
   def index(conn, _params) do
-    forums = Forum.all(order: :date, preload: [:topics])
+    forums = Forum.all(order: :date, preload: [topics: :user])
     render(conn, "index.html", forums: forums)
   end
 
   def show(conn, %{"id" => id}) do
-    forum = Forum.get(id, preload: [:topics])
+    forum = Forum.get(id, preload: [topics: :user])
     render(conn, "show.html", forum: forum)
   end
 end

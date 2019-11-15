@@ -1,18 +1,20 @@
-<h2>Forum: <%= @forum.name %></h2>
-<dl>
-  <dt>Name</dt>
-  <dd><%= @forum.name %></dd>
+<nav class="UnderlineNav mb-4">
+  <div class="UnderlineNav-body">
+    <span role="tab" title="<%= @forum.name %>" class="UnderlineNav-item selected h4">
+      <%= @forum.name %>
+    </span>
+    <a href="/cop-archive/forum" role="tab" title="Forum List" class="UnderlineNav-item h4">
+      Forum List
+    </a>
+  </div>
+</nav>
 
-  <dt>Description</dt>
-  <dd><%= format @forum.description %></dd>
-
-  <dt>Intro</dt>
-  <dd><%= format @forum.intro %></dd>
-</dl>
-
-<h4>Topics</h4>
-<ul>
+<nav class="menu">
   <%= for topic <- @forum.topics do %>
-    <li> <%= link raw(topic.subject), to: Routes.topic_path(@conn, :show, topic) %> <%= topic.liveDatetime |> date() %></li>
+    <div class="menu-item grid-4-1-1">
+      <%= link raw(topic.subject), to: Routes.topic_path(@conn, :show, topic) %>
+      <span><%= link topic.user.displayName, to: Routes.user_path(@conn, :show, topic.user) %></span>
+      <span><%= topic.liveDatetime |> date() %></span>
+    </div>
   <% end %>
-</ul>
+</nav>

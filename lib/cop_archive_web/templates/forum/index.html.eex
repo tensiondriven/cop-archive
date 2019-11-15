@@ -1,7 +1,14 @@
-<h2>All Forums</h2>
 
-<ul>
+<nav class="UnderlineNav mb-4">
+    <div class="UnderlineNav-body">
+      <span role="tab" title="Forum List" class="UnderlineNav-item selected h4">
+        Forum List
+      </span>
+    </div>
+  </nav>
+
+<nav class="menu">
   <%= for forum <- @forums do %>
-    <li><%= link forum.name, to: Routes.forum_path(@conn, :show, forum) %></li>
+    <%= link forum.name, to: Routes.forum_path(@conn, :show, forum), class: "menu-item h4" %>
   <% end %>
-</ul>
+</nav>
