@@ -1,37 +1,34 @@
-<h2>Topic: <%= raw(@topic.subject) %></h2>
-<dl>
-  <dt>oid</dt>
-  <dd><%= @topic.oid %></dd>
+<div class="Box mb-2">
+    <div class="Box-header">
+      <div class="float-right">
+        <%= unless @topic.forum, do: "NIL", else: link "Posted in #{@topic.forum.name}", to: Routes.forum_path(@conn, :show, @topic.forum) %>
+        •
+        <%= link "By #{@topic.user.displayName}", to: Routes.user_path(@conn, :show, @topic.user) %>
+        •
+        <%= date @topic.liveDatetime %>
+      </div>
+      <h4><%= raw(@topic.subject) %></h4>
+    </div>
+    <div class="Box-row">
+      <%= format @topic.extract %>
+    </div>
+</div>
 
-  <dt>Forum</dt>
-  <dd><%= unless @topic.forum, do: "NIL", else: link @topic.forum.name, to: Routes.forum_path(@conn, :show, @topic.forum) %></dd>
 
-  <dt>Subject</dt>
-  <dd><%= format @topic.subject %></dd>
-
-  <dt>Extract</dt>
-  <dd><%= format  @topic.extract %></dd>
-
-  <dt>User</dt>
-  <dd><%= link @topic.user.displayName, to: Routes.user_path(@conn, :show, @topic.user) %></dd>
-
-  <dt>Published</dt>
-  <dd><%= date @topic.liveDatetime %></dd>
-
-  <dt>Last Updated</dt>
-  <dd><%= date @topic.lastUpdateDatetime %></dd>
-</dl>
-
-<h4><%= Enum.count(@topic.replies) %> Replies</h4>
-<ol>
+<div class="Box mb-2">
+  <div class="Box-header h5">
+      <%= if (c = Enum.count(@topic.replies)) > 0, do: "#{c} Replies", else: "No Replies" %>
+  </div>
   <%= for reply <- @topic.replies do %>
-    <li>
-      <ul>
+    <div class="Box-row grid-reply">
+      <div>
         <%= link reply.user.displayName, to: Routes.user_path(@conn, :show, reply.user) %>
-        <%= date reply.liveDatetime %>
         <br/>
+        <%= date reply.liveDatetime %>
+      </div>
+      <div>
         <%= format reply.body %>
-      </ul>
-    </li>
+      </div>
+    </div>
   <% end %>
-</ol>
+</div>

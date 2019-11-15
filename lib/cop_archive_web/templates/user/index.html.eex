@@ -1,7 +1,16 @@
-<h2>All Users</h2>
+<nav class="UnderlineNav mb-4">
+    <div class="UnderlineNav-body">
+      <span role="tab" title="All Users" class="UnderlineNav-item selected h4">
+        All Users
+      </span>
+      <a href="/cop-archive/forum" role="tab" title="Forum List" class="UnderlineNav-item h4">
+        Forum List
+      </a>
+    </div>
+  </nav>
 
-<ul>
-  <%= for user <- @users do %>
-    <li><%= link user.displayName, to: Routes.user_path(@conn, :show, user) %></li>
-  <% end %>
-</ul>
+  <nav class="menu">
+    <%= for user <- @users do %>
+      <%= link user.displayName, to: Routes.user_path(@conn, :show, user), class: "menu-item h4" %>
+    <% end %>
+  </nav>

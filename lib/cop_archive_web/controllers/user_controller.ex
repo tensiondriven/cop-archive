@@ -4,12 +4,12 @@ defmodule CopArchiveWeb.UserController do
   alias CopArchive.User
 
   def index(conn, _params) do
-    users = User.all(order: :name, preload: [:topics, :replies])
+    users = User.all(order: :name, preload: [:topics, [replies: :topic]])
     render(conn, "index.html", users: users)
   end
 
   def show(conn, %{"id" => id}) do
-    user = User.get(id, preload: [:topics, :replies])
+    user = User.get(id, preload: [:topics, [replies: :topic]])
 
     render(conn, "show.html", user: user)
   end

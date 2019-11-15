@@ -67,7 +67,17 @@ $content-area-min-width-for-phone-only: $for-phone-only - $sidebar-min-width;
   grid-column-gap: 8px;
 }
 
-.grid-4-1-1 {
+.grid-topic-list {
   display: grid;
-  grid-template-columns: 4fr 1fr 1fr;
+  grid-template-columns: 60px 4fr 1fr 100px;
+}
+
+.grid-reply {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+}
+
+.grid-top-menu {
+  display: grid;
+  grid-template-columns: 1fr 100px 160px;
 }

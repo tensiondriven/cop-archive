@@ -1,25 +1,49 @@
-<h2>User: <%= @user.displayName %></h2>
-<dl>
-  <dt>User Name</dt>
-  <dd><%= @user.username %></dd>
 
-  <dt>Display Name</dt>
-  <dd><%= @user.displayName %></dd>
+<nav class="UnderlineNav mb-4">
+  <div class="UnderlineNav-body">
+    <span role="tab" title="<%= @user.displayName %>" class="UnderlineNav-item selected h4">
+      Topics & Replies by <%= @user.displayName %>
+    </span>
+    <a href="/cop-archive/forum" role="tab" title="Forum List" class="UnderlineNav-item h4">
+      Forum List
+    </a>
+    <a href="/cop-archive/user" role="tab" title="User List" class="UnderlineNav-item h4">
+      User List
+    </a>
+  </div>
+</nav>
 
-  <dt>Registration Date</dt>
-  <dd><%= @user.registrationDate |> date() %></dd>
-</dl>
+<div class="Box mb-2">
+    <div class="Box-header h4">
+        <%= Enum.count(@user.topics) %> Topics
+    </div>
+    <%= for topic <- @user.topics do %>
+      <div class="Box-row grid-reply">
+        <div>
+            <%= link format(topic.subject), to: Routes.topic_path(@conn, :show, topic) %>
+        <div>
+          <%= date topic.liveDatetime %>
+        </div>
+      </div>
+        <%= link topic.extract |> strip_tags() |> truncate(length: 300), to: Routes.topic_path(@conn, :show, topic) %>
+      </div>
+    <% end %>
+  </div>
 
-<h4><%= Enum.count(@user.topics) %> Topics</h4>
-<ul>
-  <%= for topic <- @user.topics do %>
-    <li><%= link format(topic.subject), to: Routes.topic_path(@conn, :show, topic) %></li>
-  <% end %>
-</ul>
 
-<h4><%= Enum.count(@user.replies) %> Replies</h4>
-<ul>
+<div class="Box mb-2">
+  <div class="Box-header h4">
+    <%= Enum.count(@user.replies) %> Replies
+  </div>
   <%= for reply <- @user.replies do %>
-    <li><%= link reply.body |> strip_tags() |> truncate(length: 100), to: Routes.reply_path(@conn, :show, reply) %></li>
+    <div class="Box-row grid-reply">
+      <div>
+      <%= if reply.topic, do: link reply.topic.subject |> strip_tags() |> truncate(length: 80), to: Routes.topic_path(@conn, :show, reply.topic) %>
+      <div>
+        <%= date reply.liveDatetime %>
+      </div>
+    </div>
+      <%= link reply.body |> strip_tags() |> truncate(length: 300), to: Routes.reply_path(@conn, :show, reply) %>
+    </div>
   <% end %>
-</ul>
+</div>

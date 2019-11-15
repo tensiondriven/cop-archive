@@ -10,9 +10,16 @@
 </nav>
 
 <nav class="menu">
+  <div class="menu-item grid-topic-list text-bold">
+      <span>Replies</span>
+      <span>Topic Title</span>
+      <span>Person</span>
+      <span>Date</span>
+  </div>
   <%= for topic <- @forum.topics do %>
-    <div class="menu-item grid-4-1-1">
-      <%= link raw(topic.subject), to: Routes.topic_path(@conn, :show, topic) %>
+    <div class="menu-item grid-topic-list">
+      <%= link Enum.count(topic.replies), to: Routes.topic_path(@conn, :show, topic), class: "text-bold ml-3" %>
+      <%= link raw(topic.subject), to: Routes.topic_path(@conn, :show, topic), class: "text-bold" %>
       <span><%= link topic.user.displayName, to: Routes.user_path(@conn, :show, topic.user) %></span>
       <span><%= topic.liveDatetime |> date() %></span>
     </div>
