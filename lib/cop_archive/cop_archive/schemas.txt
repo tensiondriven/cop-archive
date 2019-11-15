@@ -1,0 +1,200 @@
+
+# SELECT table_name, table_rows FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'cop' ORDER BY table_rows DESC;
+
++-------------------------------+------------+
+| TABLE_NAME                    | TABLE_ROWS |
++-------------------------------+------------+
+| UserLikedReply                |       8236 |
+| ReplyStats                    |       6861 |
+| WatchedContent                |       5531 |
+| Reply                         |       2368 |
+| Composition                   |       2039 |
+| CompositionStats              |       1968 |
+| UserLikedComposition          |       1464 |
+| ForumTopic                    |       1172 |
+| ReplyMentions                 |        992 |
+| DialogCmp                     |        456 |
+| CalendarEventContent          |        277 |
+| SurveyQuestionResponse        |        104 |
+| SurveyQuestionWriteInResponse |         85 |
+| SurveyResponse                |         37 |
+| FilePointer                   |         30 |
+| CompositionMentions           |         26 |
+| FilePointerSet                |         23 |
+| UserWallTopic                 |         13 |
+| SurveyAnswer                  |          7 |
+| SurveyQuestion                |          3 |
+| ReplyReport                   |          0 |
+| ReplyCcEmailAddress           |          0 |
+| Survey                        |          0 |
+| BlogEntry                     |          0 |
+| QuestionSharkTopic            |          0 |
+| QuestionSharkProductFaqTopic  |          0 |
+| QuestionSharkDocumentCmp      |          0 |
+| DatabaseRecord                |          0 |
+| CompositionReport             |          0 |
+| ChatRoomContent               |          0 |
+| ChatEventContent              |          0 |
+| QuestionSharkTopicEvent       |          0 |
++-------------------------------+------------+
+
+# select TABLE_NAME, COLUMN_NAME, DATA_TYPE, COLUMN_TYPE, COLUMN_KEY from information_schema.columns where table_schema = 'cop' order by table_name,ordinal_position
+
+
++-------------------------------+-------------------------------+------------+-------------------------------------------------+------------+
+| TABLE_NAME                    | COLUMN_NAME                   | DATA_TYPE  | COLUMN_TYPE                                     | COLUMN_KEY |
++-------------------------------+-------------------------------+------------+-------------------------------------------------+------------+
+| BlogEntry                     | oid                           | bigint     | bigint(20)                                      | PRI        |
+| BlogEntry                     | legacySurveyComposition_oid   | bigint     | bigint(20)                                      | MUL        |
+| CalendarEventContent          | oid                           | bigint     | bigint(20)                                      | PRI        |
+| ChatEventContent              | oid                           | bigint     | bigint(20)                                      | PRI        |
+| ChatRoomContent               | oid                           | bigint     | bigint(20)                                      | PRI        |
+| Composition                   | oid                           | bigint     | bigint(20)                                      | PRI        |
+| Composition                   | areaOid                       | bigint     | bigint(20)                                      | MUL        |
+| Composition                   | body                          | mediumtext | mediumtext                                      |            |
+| Composition                   | collapseAttachmentBox         | bit        | bit(1)                                          |            |
+| Composition                   | compositionType               | int        | int(11)                                         |            |
+| Composition                   | editDatetime                  | datetime   | datetime                                        |            |
+| Composition                   | editorUserOid                 | bigint     | bigint(20)                                      |            |
+| Composition                   | guestName                     | varchar    | varchar(40)                                     |            |
+| Composition                   | hasSignature                  | bit        | bit(1)                                          |            |
+| Composition                   | postBodySource                | tinyint    | tinyint(4)                                      |            |
+| Composition                   | postByEmail                   | bit        | bit(1)                                          |            |
+| Composition                   | userOid                       | bigint     | bigint(20)                                      |            |
+| Composition                   | filePointerSet_oid            | bigint     | bigint(20)                                      | MUL        |
+| Composition                   | mentions_oid                  | bigint     | bigint(20)                                      |            |
+| CompositionMentions           | oid                           | bigint     | bigint(20)                                      | PRI        |
+| CompositionMentions           | mentionedMemberOids           | longtext   | longtext                                        |            |
+| CompositionReport             | oid                           | bigint     | bigint(20)                                      | PRI        |
+| CompositionReport             | acknowledged                  | bit        | bit(1)                                          |            |
+| CompositionReport             | message                       | text       | text                                            |            |
+| CompositionReport             | submissionDatetime            | datetime   | datetime                                        |            |
+| CompositionReport             | userOid                       | bigint     | bigint(20)                                      |            |
+| CompositionReport             | composition_oid               | bigint     | bigint(20)                                      | MUL        |
+| CompositionStats              | oid                           | bigint     | bigint(20)                                      | PRI        |
+| CompositionStats              | lastStaffUpdateDatetime       | datetime   | datetime                                        |            |
+| CompositionStats              | lastUpdateDatetime            | datetime   | datetime                                        |            |
+| CompositionStats              | likeFields_likeCount          | int        | int(11)                                         |            |
+| CompositionStats              | pageViews                     | int        | int(11)                                         |            |
+| CompositionStats              | replyCount                    | int        | int(11)                                         |            |
+| CompositionStats              | watchedContentCount           | int        | int(11)                                         |            |
+| CompositionStats              | whisperCount                  | int        | int(11)                                         |            |
+| CompositionStats              | lastReply_oid                 | bigint     | bigint(20)                                      | MUL        |
+| CompositionStats              | lastReply2_oid                | bigint     | bigint(20)                                      | MUL        |
+| CompositionStats              | lastReply3_oid                | bigint     | bigint(20)                                      | MUL        |
+| CompositionStats              | lastStaffReply_oid            | bigint     | bigint(20)                                      | MUL        |
+| DatabaseRecord                | oid                           | bigint     | bigint(20)                                      | PRI        |
+| DialogCmp                     | oid                           | bigint     | bigint(20)                                      | PRI        |
+| DialogCmp                     | lastActivityIp                | varchar    | varchar(15)                                     |            |
+| FilePointer                   | fileType                      | varchar    | varchar(31)                                     |            |
+| FilePointer                   | oid                           | bigint     | bigint(20)                                      | PRI        |
+| FilePointer                   | byteSize                      | int        | int(11)                                         |            |
+| FilePointer                   | filename                      | varchar    | varchar(255)                                    |            |
+| FilePointer                   | metaData                      | longblob   | longblob                                        |            |
+| FilePointer                   | mimeType                      | varchar    | varchar(80)                                     |            |
+| FilePointer                   | fileOnDiskOid                 | bigint     | bigint(20)                                      | MUL        |
+| FilePointer                   | status                        | tinyint    | tinyint(4)                                      |            |
+| FilePointer                   | threadingOrder                | int        | int(11)                                         |            |
+| FilePointer                   | filePointerSet_oid            | bigint     | bigint(20)                                      | MUL        |
+| FilePointerSet                | oid                           | bigint     | bigint(20)                                      | PRI        |
+| FilePointerSet                | fileCount                     | int        | int(11)                                         |            |
+| FilePointerSet                | totalByteSize                 | int        | int(11)                                         |            |
+| FilePointerSet                | composition_oid               | bigint     | bigint(20)                                      |            |
+| ForumTopic                    | oid                           | bigint     | bigint(20)                                      | PRI        |
+| ForumTopic                    | legacySurveyComposition_oid   | bigint     | bigint(20)                                      | MUL        |
+| QuestionSharkDocumentCmp      | oid                           | bigint     | bigint(20)                                      | PRI        |
+| QuestionSharkProductFaqTopic  | oid                           | bigint     | bigint(20)                                      | PRI        |
+| QuestionSharkTopic            | oid                           | bigint     | bigint(20)                                      | PRI        |
+| QuestionSharkTopic            | bestStaffReplyMarkedByUserOid | bigint     | bigint(20)                                      |            |
+| QuestionSharkTopic            | bestReply_oid                 | bigint     | bigint(20)                                      | MUL        |
+| QuestionSharkTopicEvent       | oid                           | bigint     | bigint(20)                                      | PRI        |
+| QuestionSharkTopicEvent       | changedToVisibility           | int        | int(11)                                         |            |
+| QuestionSharkTopicEvent       | datetime                      | datetime   | datetime                                        |            |
+| QuestionSharkTopicEvent       | extraDataOid                  | bigint     | bigint(20)                                      |            |
+| QuestionSharkTopicEvent       | topicChangedToStatus          | int        | int(11)                                         |            |
+| QuestionSharkTopicEvent       | topicTypeDuringChange         | int        | int(11)                                         |            |
+| QuestionSharkTopicEvent       | type                          | int        | int(11)                                         |            |
+| QuestionSharkTopicEvent       | userOid                       | bigint     | bigint(20)                                      |            |
+| QuestionSharkTopicEvent       | topic_oid                     | bigint     | bigint(20)                                      | MUL        |
+| Reply                         | oid                           | bigint     | bigint(20)                                      | PRI        |
+| Reply                         | body                          | mediumtext | mediumtext                                      |            |
+| Reply                         | collapseAttachmentBox         | bit        | bit(1)                                          |            |
+| Reply                         | editDatetime                  | datetime   | datetime                                        |            |
+| Reply                         | editorUserOid                 | bigint     | bigint(20)                                      |            |
+| Reply                         | guestName                     | varchar    | varchar(40)                                     |            |
+| Reply                         | hasSignature                  | bit        | bit(1)                                          |            |
+| Reply                         | lastActivityIp                | varchar    | varchar(15)                                     |            |
+| Reply                         | liveDatetime                  | datetime   | datetime                                        |            |
+| Reply                         | moderationStatus              | enum       | enum('APPROVED','PENDING_APPROVAL','MODERATED') |            |
+| Reply                         | postBodySource                | tinyint    | tinyint(4)                                      |            |
+| Reply                         | postByEmail                   | bit        | bit(1)                                          |            |
+| Reply                         | threadingOrder                | int        | int(11)                                         | UNI        |
+| Reply                         | userOid                       | bigint     | bigint(20)                                      |            |
+| Reply                         | whisper                       | bit        | bit(1)                                          |            |
+| Reply                         | composition_oid               | bigint     | bigint(20)                                      | MUL        |
+| Reply                         | filePointerSet_oid            | bigint     | bigint(20)                                      | UNI        |
+| Reply                         | forkedComposition_oid         | bigint     | bigint(20)                                      | MUL        |
+| Reply                         | mentions_oid                  | bigint     | bigint(20)                                      |            |
+| ReplyCcEmailAddress           | oid                           | bigint     | bigint(20)                                      | PRI        |
+| ReplyCcEmailAddress           | displayName                   | varchar    | varchar(255)                                    |            |
+| ReplyCcEmailAddress           | emailAddress                  | varchar    | varchar(255)                                    |            |
+| ReplyCcEmailAddress           | reply_oid                     | bigint     | bigint(20)                                      | MUL        |
+| ReplyMentions                 | oid                           | bigint     | bigint(20)                                      | PRI        |
+| ReplyMentions                 | mentionedMemberOids           | longtext   | longtext                                        |            |
+| ReplyReport                   | oid                           | bigint     | bigint(20)                                      | PRI        |
+| ReplyReport                   | acknowledged                  | bit        | bit(1)                                          |            |
+| ReplyReport                   | message                       | text       | text                                            |            |
+| ReplyReport                   | submissionDatetime            | datetime   | datetime                                        |            |
+| ReplyReport                   | userOid                       | bigint     | bigint(20)                                      |            |
+| ReplyReport                   | reply_oid                     | bigint     | bigint(20)                                      | MUL        |
+| ReplyStats                    | oid                           | bigint     | bigint(20)                                      | PRI        |
+| ReplyStats                    | likeCount                     | int        | int(11)                                         |            |
+| ReplyStats                    | reportCount                   | int        | int(11)                                         |            |
+| Survey                        | oid                           | bigint     | bigint(20)                                      | PRI        |
+| Survey                        | responseCount                 | int        | int(11)                                         |            |
+| SurveyAnswer                  | oid                           | bigint     | bigint(20)                                      | PRI        |
+| SurveyAnswer                  | answer                        | longtext   | longtext                                        |            |
+| SurveyAnswer                  | avatarFileOnDiskOid           | bigint     | bigint(20)                                      |            |
+| SurveyAnswer                  | guestResponseCount            | int        | int(11)                                         |            |
+| SurveyAnswer                  | memberResponseCount           | int        | int(11)                                         |            |
+| SurveyAnswer                  | threadingOrder                | int        | int(11)                                         |            |
+| SurveyAnswer                  | question_oid                  | bigint     | bigint(20)                                      | MUL        |
+| SurveyQuestion                | oid                           | bigint     | bigint(20)                                      | PRI        |
+| SurveyQuestion                | allowWriteInAnswer            | bit        | bit(1)                                          |            |
+| SurveyQuestion                | description                   | mediumtext | mediumtext                                      |            |
+| SurveyQuestion                | guestWriteInResponseCount     | int        | int(11)                                         |            |
+| SurveyQuestion                | memberWriteInResponseCount    | int        | int(11)                                         |            |
+| SurveyQuestion                | multiSelect                   | bit        | bit(1)                                          |            |
+| SurveyQuestion                | question                      | longtext   | longtext                                        |            |
+| SurveyQuestion                | threadingOrder                | int        | int(11)                                         |            |
+| SurveyQuestion                | usesAnswerAvatars             | bit        | bit(1)                                          |            |
+| SurveyQuestion                | survey_oid                    | bigint     | bigint(20)                                      | MUL        |
+| SurveyQuestionResponse        | oid                           | bigint     | bigint(20)                                      | PRI        |
+| SurveyQuestionResponse        | answer_oid                    | bigint     | bigint(20)                                      | MUL        |
+| SurveyQuestionResponse        | response_oid                  | bigint     | bigint(20)                                      | MUL        |
+| SurveyQuestionWriteInResponse | oid                           | bigint     | bigint(20)                                      | PRI        |
+| SurveyQuestionWriteInResponse | answer                        | varchar    | varchar(255)                                    |            |
+| SurveyQuestionWriteInResponse | question_oid                  | bigint     | bigint(20)                                      | MUL        |
+| SurveyQuestionWriteInResponse | response_oid                  | bigint     | bigint(20)                                      | MUL        |
+| SurveyResponse                | oid                           | bigint     | bigint(20)                                      | PRI        |
+| SurveyResponse                | responseDatetime              | datetime   | datetime                                        |            |
+| SurveyResponse                | userOid                       | bigint     | bigint(20)                                      | MUL        |
+| SurveyResponse                | survey_oid                    | bigint     | bigint(20)                                      | MUL        |
+| UserLikedComposition          | oid                           | bigint     | bigint(20)                                      | PRI        |
+| UserLikedComposition          | creationDatetime              | datetime   | datetime                                        |            |
+| UserLikedComposition          | removed                       | bit        | bit(1)                                          |            |
+| UserLikedComposition          | userOid                       | bigint     | bigint(20)                                      | MUL        |
+| UserLikedComposition          | composition_oid               | bigint     | bigint(20)                                      | MUL        |
+| UserLikedReply                | oid                           | bigint     | bigint(20)                                      | PRI        |
+| UserLikedReply                | creationDatetime              | datetime   | datetime                                        |            |
+| UserLikedReply                | removed                       | bit        | bit(1)                                          |            |
+| UserLikedReply                | userOid                       | bigint     | bigint(20)                                      | MUL        |
+| UserLikedReply                | reply_oid                     | bigint     | bigint(20)                                      | MUL        |
+| UserWallTopic                 | oid                           | bigint     | bigint(20)                                      | PRI        |
+| WatchedContent                | oid                           | bigint     | bigint(20)                                      | PRI        |
+| WatchedContent                | createdDatetime               | datetime   | datetime                                        |            |
+| WatchedContent                | userOid                       | bigint     | bigint(20)                                      | MUL        |
+| WatchedContent                | watchCalendarEventRsvps       | bit        | bit(1)                                          |            |
+| WatchedContent                | watchSurveyVotes              | bit        | bit(1)                                          |            |
+| WatchedContent                | composition_oid               | bigint     | bigint(20)                                      | MUL        |
++-------------------------------+-------------------------------+------------+-------------------------------------------------+------------+

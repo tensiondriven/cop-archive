@@ -1,0 +1,7 @@
+<h2>Users</h2>
+
+<ul>
+  <%= for user <- @users do %>
+    <li><%= link user.displayName, to: Routes.user_path(@conn, :show, user) %></li>
+  <% end %>
+</ul>

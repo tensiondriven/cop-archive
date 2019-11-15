@@ -1,0 +1,8 @@
+<h2>User: <%= @user.displayName %></h2>
+<dl>
+    <dt>User Name</dt>
+    <dd>@user.username</dd>
+
+    <dt>Display Name</dt>
+    <dd>@user.displayName</dd>
+  </dl>

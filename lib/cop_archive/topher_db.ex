@@ -12,8 +12,8 @@ defmodule CopArchive.TopherDB do
       # def get!(list) when is_list(list),
       #   do: raise("Can't pass a list to get!, did you mean get_by!?")
 
-      def get(id, filt \\ []), do: get_by(Keyword.merge([id: id], filt))
-      def get!(id, filt \\ []), do: get_by!(Keyword.merge([id: id], filt))
+      def get(id), do: CopArchive.Repo.get(__MODULE__, id)
+      def get!(id), do: CopArchive.Repo.get!(__MODULE__, id)
       def get_by(filt), do: __MODULE__ |> apply_clauses(filt) |> Repo.first()
       def get_by!(filt), do: __MODULE__ |> apply_clauses(filt) |> Repo.first!()
       def all(filt \\ []), do: __MODULE__ |> apply_clauses(filt) |> Repo.all()

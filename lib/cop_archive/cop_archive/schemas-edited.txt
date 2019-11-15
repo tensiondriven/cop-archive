@@ -1,0 +1,231 @@
+
+# SELECT table_name, table_rows FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'cop' ORDER BY table_rows DESC;
+
+mysql> SELECT table_name, table_rows FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'cop' ORDER BY table_rows DESC;
++--------------------------------------+------------+
+| TABLE_NAME                           | TABLE_ROWS |
++--------------------------------------+------------+
+| ContentTag                           |       3276 |
+| AreaUser                             |       1633 |
+| AreaUserRlm                          |       1633 |
+| AreaUserStats                        |       1633 |
+| PortfolioAreaUser                    |       1633 |
+| Profile                              |       1633 |
+| SandboxedAreaUser                    |       1633 |
+| UserStats                            |       1633 |
+| AreaCredentials                      |       1632 |
+| UserAuth                             |       1632 |
+| User                                 |       1620 |
+| WatchedQuestionSharkProduct          |       1564 |
+| PortfolioTagVariant                  |       1537 |
+| ContentStats                         |       1464 |
+| WatchedForum                         |       1448 |
+| Content                              |       1403 |
+| WatchedCalendar                      |       1396 |
+| FileOnDisk                           |       1305 |
+| FileOnDiskStats                      |       1305 |
+| PortfolioTagConsumerTypeUsageCount   |       1257 |
+| WatchedUser                          |       1202 |
+| PortfolioTag                         |       1179 |
+| PortfolioTagStats                    |       1179 |
+| UserReadData                         |       1179 |
+| ForumContent                         |       1172 |
+| ForumTopicContent                    |       1172 |
+| CustomProfileFieldValue              |       1085 |
+| DialogParticipant                    |        949 |
+| AreaCircleUser                       |        496 |
+| Dialog                               |        456 |
+| CalendarEvent                        |        277 |
+| CalendarEventStats                   |        277 |
+| Event                                |        277 |
+| CalendarEventRsvp                    |        237 |
+| ThemeSetting                         |        185 |
+| ItemHourTrendingStats                |        179 |
+| PremiumGroupUser                     |        164 |
+| UserLovedImage                       |        110 |
+| AreaCirclePermission                 |        106 |
+| AreaInvite                           |        106 |
+| UserLikedClip                        |        102 |
+| DefaultText                          |        101 |
+| Wordlet                              |        101 |
+| ClipTag                              |         79 |
+| AreaPropertyOverride                 |         67 |
+| PremiumMembershipTransaction         |         42 |
+| PortfolioWidget                      |         33 |
+| Clip                                 |         32 |
+| ClipStats                            |         32 |
+| PremiumGroupInvite                   |         30 |
+| EmailMessageId                       |         29 |
+| ClipSetClip                          |         28 |
+| AreaResource                         |         22 |
+| AreaCircle                           |         16 |
+| UserWallContent                      |         13 |
+| PremiumMembershipDisbursement        |         10 |
+| Forum                                |          9 |
+| ForumStats                           |          9 |
+| FutureContent                        |          9 |
+| AreaMenuItem                         |          8 |
+| WebSpaceFile                         |          6 |
+| UserNote                             |          5 |
+| Calendar                             |          4 |
+| ClipSet                              |          4 |
+| CustomPage                           |          4 |
+| CustomWidgetConfig                   |          4 |
+| HighlightedForumContent              |          4 |
+| WatchedClipSet                       |          4 |
+| AreaCustomMenuItem                   |          3 |
+| AutomationAction                     |          3 |
+| AutomationCategory                   |          3 |
+| AutomationRecipe                     |          3 |
+| AreaDomain                           |          2 |
+| AreaModuleCustomTitle                |          2 |
+| AreaPropertySet                      |          2 |
+| AutomationCondition                  |          2 |
+| Category                             |          2 |
+| CustomGraphic                        |          2 |
+| PremiumMembershipRefund              |          2 |
+| SurveyContentPermission              |          2 |
+| Theme                                |          2 |
+| Area                                 |          1 |
+| AreaIdentifier                       |          1 |
+| AreaRlm                              |          1 |
+| AreaStats                            |          1 |
+| AuthZoneDisbursementSettings         |          1 |
+| AuthZonePremiumMembershipStats       |          1 |
+| Chat                                 |          1 |
+| ChatRoom                             |          1 |
+| CustomField                          |          1 |
+| Portfolio                            |          1 |
+| PremiumGroup                         |          1 |
+| SurveyContent                        |          1 |
+| WordletSet                           |          1 |
+| AkismetSpamMonthStats                |          0 |
+| Alert                                |          0 |
+| AreaCircleCustomImage                |          0 |
+| AreaCustomSubMenuItem                |          0 |
+| AreaExternalAuthApp                  |          0 |
+| BlogCollection                       |          0 |
+| BlogCollectionContent                |          0 |
+| ChatEvent                            |          0 |
+| ChatEventHost                        |          0 |
+| ChatEventInvitedHost                 |          0 |
+| ChatMessageFile                      |          0 |
+| ClipFiredRecipe                      |          0 |
+| ContentFiredRecipe                   |          0 |
+| ConvolioAreaPlan                     |          0 |
+| CustomFieldOption                    |          0 |
+| CustomGraemlin                       |          0 |
+| CustomImage                          |          0 |
+| CustomPageWidget                     |          0 |
+| CustomProfileFieldFile               |          0 |
+| CustomProfileFieldOption             |          0 |
+| DatabaseCustomField                  |          0 |
+| DatabaseCustomFieldOption            |          0 |
+| DatabaseDisplayField                 |          0 |
+| DatabaseExtractField                 |          0 |
+| DatabaseField                        |          0 |
+| DatabaseRecordContent                |          0 |
+| DatabaseRecordFieldFile              |          0 |
+| DatabaseRecordFieldOption            |          0 |
+| DatabaseRecordFieldValue             |          0 |
+| DBPartition                          |          0 |
+| EmbeddedWidget                       |          0 |
+| EveLegacyMapping                     |          0 |
+| FeaturedClip                         |          0 |
+| FeaturedContent                      |          0 |
+| ForumDisplayModerator                |          0 |
+| ForumWidget                          |          0 |
+| FutureChatEvent                      |          0 |
+| HooplaDatabase                       |          0 |
+| HooplaDatabaseWidget                 |          0 |
+| InnerCircleMessageTemplate           |          0 |
+| InnerCircleUser                      |          0 |
+| InstantNotification                  |          0 |
+| KickedChatParticipant                |          0 |
+| ModeratedChatMessage                 |          0 |
+| ModeratedItem                        |          0 |
+| ModeratedItemAudience                |          0 |
+| OpenIdProviderAssociation            |          0 |
+| PortfolioTagHooplaDatabaseUsageCount |          0 |
+| PremiumMembershipAffiliate           |          0 |
+| PremiumMembershipAffiliateMonthStats |          0 |
+| PremiumMembershipBalanceAdjustment   |          0 |
+| QuestionSharkContent                 |          0 |
+| QuestionSharkContentParticipant      |          0 |
+| QuestionSharkContentProduct          |          0 |
+| QuestionSharkDocument                |          0 |
+| QuestionSharkProduct                 |          0 |
+| QuestionSharkProductFaqCategory      |          0 |
+| QuestionSharkProductFaqContent       |          0 |
+| QuestionSharkProductFaqSection       |          0 |
+| QueuedFacebookMessage                |          0 |
+| StockAvatar                          |          0 |
+| Template                             |          0 |
+| ThemeCustomImage                     |          0 |
+| UserFeedAccount                      |          0 |
+| UserMobileDevice                     |          0 |
+| VanityEmailAddress                   |          0 |
+| WatchedDatabaseUser                  |          0 |
+| WatchedHooplaDatabase                |          0 |
+| WidgetLink                           |          0 |
++--------------------------------------+------------+
+163 rows in set (0.00 sec)
+
+#
+#
+#
+
+mysql> describe user;
++------------------------------------------------+--------------+------+-----+---------+-------+
+| Field                                          | Type         | Null | Key | Default | Extra |
++------------------------------------------------+--------------+------+-----+---------+-------+
+| oid                                            | bigint(20)   | NO   | PRI | NULL    |       |
+| authZone                                       | bigint(20)   | NO   | MUL | NULL    |       |
+| displayName                                    | varchar(40)  | NO   |     | NULL    |       |
+| formatPreferences_languageLocale               | int(11)      | YES  |     | NULL    |       |
+| formatPreferences_locale                       | varchar(8)   | NO   |     | NULL    |       |
+| formatPreferences_timeZone                     | varchar(255) | YES  |     | NULL    |       |
+| moderationReasons                              | bigint(20)   | NO   |     | NULL    |       |
+| preferences_disableCommentWall                 | bit(1)       | NO   |     | NULL    |       |
+| preferences_facebookPageId                     | varchar(255) | YES  |     | NULL    |       |
+| preferences_facebookPageUserId                 | varchar(255) | YES  |     | NULL    |       |
+| preferences_hasConfiguredMobilePush            | bit(1)       | NO   |     | NULL    |       |
+| preferences_hideMeOnOnlineNow                  | bit(1)       | NO   |     | NULL    |       |
+| preferences_hideMyBirthday                     | bit(1)       | NO   |     | NULL    |       |
+| preferences_hideMyLikesPage                    | bit(1)       | NO   |     | NULL    |       |
+| preferences_hideUserFeedAccountsTip            | bit(1)       | NO   |     | NULL    |       |
+| preferences_includeSignatureByDefault          | bit(1)       | NO   |     | NULL    |       |
+| preferences_instantDeliveryMethods             | tinyint(4)   | NO   |     | NULL    |       |
+| preferences_lastDeactivationDatetime           | datetime     | YES  |     | NULL    |       |
+| preferences_notifyMeOfCommentsToWatchedContent | bit(1)       | NO   |     | NULL    |       |
+| preferences_notifyNewDialogPosts               | bit(1)       | NO   |     | NULL    |       |
+| preferences_stripLocationInfo                  | bit(1)       | NO   |     | NULL    |       |
+| preferences_subscribeToContentYouPostTo        | bit(1)       | NO   |     | NULL    |       |
+| preferences_subscribeToParticipatingDialogs    | bit(1)       | NO   |     | NULL    |       |
+| preferences_subscribeToYourNewContent          | bit(1)       | NO   |     | NULL    |       |
+| preferences_suppressReplySignatures            | bit(1)       | NO   |     | NULL    |       |
+| preferences_suspendAllEmails                   | bit(1)       | NO   |     | NULL    |       |
+| preferences_wba28DayJourneyDeliveryMethods     | tinyint(4)   | NO   |     | NULL    |       |
+| requiresReviewDatetime                         | datetime     | YES  |     | NULL    |       |
+| signature                                      | longtext     | YES  |     | NULL    |       |
+| twoFactorAuthenticationSecretKey               | tinytext     | YES  |     | NULL    |       |
+| agreedToTosDatetime                            | datetime     | YES  |     | NULL    |       |
+| emailAddress                                   | varchar(255) | NO   |     | NULL    |       |
+| emailVerified                                  | bit(1)       | NO   |     | NULL    |       |
+| registrationDate                               | datetime     | NO   |     | NULL    |       |
+| registrationIp                                 | varchar(15)  | YES  |     | NULL    |       |
+| registrationIpCountry                          | char(2)      | YES  |     | NULL    |       |
+| userStatus                                     | int(11)      | NO   |     | NULL    |       |
+| username                                       | varchar(40)  | YES  |     | NULL    |       |
+| wallTopicCompositionPartitionOid               | bigint(20)   | YES  |     | NULL    |       |
+| avatar_oid                                     | bigint(20)   | YES  | MUL | NULL    |       |
+| stockAvatar_oid                                | bigint(20)   | YES  | MUL | NULL    |       |
++------------------------------------------------+--------------+------+-----+---------+-------+
+41 rows in set (0.00 sec)
+
+#
+# Columns
+#
+
+# select TABLE_NAME, COLUMN_NAME, DATA_TYPE, COLUMN_TYPE, COLUMN_KEY from information_schema.columns where table_schema = 'cop' order by table_name,ordinal_position
+inal_position;

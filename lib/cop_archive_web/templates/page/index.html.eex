@@ -1,1 +1,5 @@
-<%= @txt  %>
+<h1>Holacracy Community of Practice Archive 20XX-2019</h1>
+
+<ul>
+  <li><%= link "Users", to: Routes.user_path(@conn, :index) %></li>
+</ul>
