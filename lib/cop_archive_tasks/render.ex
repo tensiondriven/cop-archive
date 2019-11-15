@@ -27,7 +27,7 @@ defmodule Mix.Tasks.Render do
     forums = Forum.all(order: :date, preload: [:topics])
 
     str = Phoenix.View.render_to_string(ForumView, "index.html", conn: conn(), forums: forums)
-    write("/forum/index.html", str)
+    write("/forum/index", str)
 
     Enum.each(forums, fn forum ->
       str = Phoenix.View.render_to_string(ForumView, "show.html", conn: conn(), forum: forum)
@@ -39,7 +39,7 @@ defmodule Mix.Tasks.Render do
     topics = Topic.all(order: :date, preload: [:forum, :user, replies: :user])
 
     str = Phoenix.View.render_to_string(TopicView, "index.html", conn: conn(), topics: topics)
-    write("/topic/index.html", str)
+    write("/topic/index", str)
 
     Enum.each(topics, fn topic ->
       str = Phoenix.View.render_to_string(TopicView, "show.html", conn: conn(), topic: topic)
@@ -51,7 +51,7 @@ defmodule Mix.Tasks.Render do
     replies = Reply.all(order: :date, preload: [:topic, :user])
 
     str = Phoenix.View.render_to_string(ReplyView, "index.html", conn: conn(), replies: replies)
-    write("/reply/index.html", str)
+    write("/reply/index", str)
 
     Enum.each(replies, fn reply ->
       if reply.topic do
@@ -65,7 +65,7 @@ defmodule Mix.Tasks.Render do
     users = User.all(order: :name, preload: [:topics, :replies])
 
     str = Phoenix.View.render_to_string(UserView, "index.html", conn: conn(), users: users)
-    write("/user/index.html", str)
+    write("/user/index", str)
 
     Enum.each(users, fn user ->
       str = Phoenix.View.render_to_string(UserView, "show.html", conn: conn(), user: user)
@@ -86,7 +86,7 @@ defmodule Mix.Tasks.Render do
   end
 
   defp path() do
-    "rendered"
+    "docs"
   end
 
   defp write(file, str) do
