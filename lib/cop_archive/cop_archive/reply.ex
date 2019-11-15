@@ -43,4 +43,7 @@ defmodule CopArchive.Reply do
 
   def apply_clause(query, :id, oid), do: Q.where(query, [r], r.oid == ^oid)
   def apply_clause(query, :order, :date), do: Q.order_by(query, [a], desc: a.liveDatetime)
+
+  def apply_clause(query, :has_topic, true),
+    do: Q.where(query, [r], not is_nil(r.composition_oid))
 end

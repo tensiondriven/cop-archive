@@ -7,8 +7,13 @@ defmodule CopArchive.ForumContent do
   @primary_key {:oid, :integer, autogenerate: false}
 
   schema "ForumContent" do
-    field :forumTopicContent_oid, :integer
+    # field :forumTopicContent_oid, :integer
     belongs_to :forum, CopArchive.Forum, foreign_key: :forum_oid, references: :oid
+
+    belongs_to :composition, CopArchive.Composition,
+      foreign_key: :forumTopicContent_oid,
+      references: :oid
+
     has_many :topics, CopArchive.Topic, foreign_key: :oid, references: :forumTopicContent_oid
   end
 

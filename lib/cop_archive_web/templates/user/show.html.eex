@@ -14,21 +14,21 @@
 </nav>
 
 <div class="Box mb-2">
-    <div class="Box-header h4">
-        <%= Enum.count(@user.topics) %> Topics
-    </div>
-    <%= for topic <- @user.topics do %>
-      <div class="Box-row grid-reply">
-        <div>
-            <%= link format(topic.subject), to: Routes.topic_path(@conn, :show, topic) %>
-        <div>
-          <%= date topic.liveDatetime %>
-        </div>
-      </div>
-        <%= link topic.extract |> strip_tags() |> truncate(length: 300), to: Routes.topic_path(@conn, :show, topic) %>
-      </div>
-    <% end %>
+  <div class="Box-header h4">
+    <%= Enum.count(@user.topics) %> Topics
   </div>
+  <%= for topic <- @user.topics do %>
+    <div class="Box-row grid-reply">
+      <div class="mr-3">
+          <%= link format(topic.subject|> strip_tags() |> truncate(length: 55)), to: Routes.topic_path(@conn, :show, topic) %>
+      <div>
+        <%= date topic.liveDatetime %>
+      </div>
+    </div>
+      <%= link topic.extract |> strip_tags() |> truncate(length: 300), to: Routes.topic_path(@conn, :show, topic) %>
+    </div>
+  <% end %>
+</div>
 
 
 <div class="Box mb-2">
@@ -38,7 +38,7 @@
   <%= for reply <- @user.replies do %>
     <div class="Box-row grid-reply">
       <div>
-      <%= if reply.topic, do: link reply.topic.subject |> strip_tags() |> truncate(length: 80), to: Routes.topic_path(@conn, :show, reply.topic) %>
+      <%= link reply.topic.subject |> strip_tags() |> truncate(length: 80), to: Routes.topic_path(@conn, :show, reply.topic) %>
       <div>
         <%= date reply.liveDatetime %>
       </div>

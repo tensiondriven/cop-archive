@@ -17,9 +17,12 @@
         <a href="https://holacracy.org" class="Header-item text-white text-bold">Holacracy Web Site</a>
       </div>
       <div class="m-3">
+      <div class="gcse-search"></div>
+
         <%= render @view_module, @view_template, assigns %>
       </div>
     </main>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+    <script async src="https://cse.google.com/cse.js?cx=016942845804259267692:xrzanrarazy"></script>
   </body>
 </html>

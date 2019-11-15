@@ -54,7 +54,7 @@ defmodule Mix.Tasks.Render do
   end
 
   defp render_topics() do
-    topics = Topic.all(order: :date, preload: [:forum, :user, replies: :user])
+    topics = Topic.all(order: :date, preload: [:forum, :composition, :user, replies: :user])
 
     str =
       Phoenix.View.render_to_string(TopicView, "index.html",
@@ -78,7 +78,7 @@ defmodule Mix.Tasks.Render do
   end
 
   defp render_replies() do
-    replies = Reply.all(order: :date, preload: [:topic, :user])
+    replies = Reply.all(order: :date, preload: [:user, topic: [:user, :forum]])
 
     str =
       Phoenix.View.render_to_string(ReplyView, "index.html",

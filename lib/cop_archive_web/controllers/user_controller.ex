@@ -11,6 +11,7 @@ defmodule CopArchiveWeb.UserController do
   def show(conn, %{"id" => id}) do
     user = User.get(id, preload: [:topics, [replies: :topic]])
 
+    user = %{user | replies: Enum.reject(user.replies, &(&1.topic == nil))}
     render(conn, "show.html", user: user)
   end
 end

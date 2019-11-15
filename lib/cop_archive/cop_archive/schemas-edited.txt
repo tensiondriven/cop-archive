@@ -325,5 +325,4 @@ mysql> describe user;
 # Columns
 #
 
-# select TABLE_NAME, COLUMN_NAME, DATA_TYPE, COLUMN_TYPE, COLUMN_KEY from information_schema.columns where table_schema = 'cop' order by table_name,ordinal_position
-inal_position;
+# select TABLE_NAME, COLUMN_NAME, DATA_TYPE, COLUMN_TYPE, COLUMN_KEY from information_schema.columns where table_schema = 'cop' order by table_name,ordinal_position;

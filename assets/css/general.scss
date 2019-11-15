@@ -1,13 +1,5 @@
-dl {
-  display: grid;
-  grid-template-columns: 200px auto;
-}
-
-dt {
-  font-weight: bold;
-}
-
-
-dd {
-  margin: 0;
+.post-content {
+  ul {
+    margin-left: 20px;
+  }
 }

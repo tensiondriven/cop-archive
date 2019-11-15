@@ -45,11 +45,11 @@ defmodule CopArchive.Topic do
 
     has_one :forum_content, CopArchive.ForumContent, foreign_key: :forumTopicContent_oid
     has_one :forum, through: [:forum_content, :forum]
+    has_one :composition, through: [:forum_content, :composition]
 
     has_many :replies, CopArchive.Reply, foreign_key: :composition_oid, references: :oid
   end
 
   def apply_clause(query, :id, oid), do: Q.where(query, [r], r.oid == ^oid)
   def apply_clause(query, :slug, slug), do: Q.where(query, [r], r.prettyUrlString == ^slug)
-  def apply_clause(query, :order, :date), do: Q.order_by(query, [a], desc: a.liveDatetime)
 end

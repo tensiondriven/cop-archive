@@ -1,7 +1,7 @@
 <div class="Box mb-2">
     <div class="Box-header">
       <div class="float-right">
-        <%= unless @topic.forum, do: "NIL", else: link "Posted in #{@topic.forum.name}", to: Routes.forum_path(@conn, :show, @topic.forum) %>
+        <%= if @topic.forum, do: link "Posted in #{@topic.forum.name}", to: Routes.forum_path(@conn, :show, @topic.forum) %>
         •
         <%= link "By #{@topic.user.displayName}", to: Routes.user_path(@conn, :show, @topic.user) %>
         •
@@ -9,8 +9,8 @@
       </div>
       <h4><%= raw(@topic.subject) %></h4>
     </div>
-    <div class="Box-row">
-      <%= format @topic.extract %>
+    <div class="Box-row post-content">
+      <%= if @topic.composition, do: format(@topic.composition.body), else: format("<i>This post as no content.</i>") %>
     </div>
 </div>
 
@@ -22,11 +22,11 @@
   <%= for reply <- @topic.replies do %>
     <div class="Box-row grid-reply">
       <div>
-        <%= link reply.user.displayName, to: Routes.user_path(@conn, :show, reply.user) %>
+        <%= link reply.user.displayName, to: Routes.user_path(@conn, :show, reply.user), class: if reply.user == @topic.user, do: "text-bold" %>
         <br/>
         <%= date reply.liveDatetime %>
       </div>
-      <div>
+      <div class="post-content">
         <%= format reply.body %>
       </div>
     </div>
