@@ -1,5 +1,7 @@
-<h1>Holacracy Community of Practice Archive 20XX-2019</h1>
+<h1>Main Menu</h1>
 
 <ul>
-  <li><%= link "Users", to: Routes.user_path(@conn, :index) %></li>
+    <li><%= link "Forums", to: Routes.forum_path(@conn, :index) %></li>
+    <li><%= link "Topics", to: Routes.topic_path(@conn, :index) %></li>
+    <li><%= link "Users", to: Routes.user_path(@conn, :index) %></li>
 </ul>

@@ -1,0 +1,7 @@
+<h2>All Forums</h2>
+
+<ul>
+  <%= for forum <- @forums do %>
+    <li><%= link forum.name, to: Routes.forum_path(@conn, :show, forum) %></li>
+  <% end %>
+</ul>

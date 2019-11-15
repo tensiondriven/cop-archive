@@ -1,0 +1,7 @@
+<h2>All Topics</h2>
+
+<ul>
+  <%= for topic <- @topics do %>
+    <li><%= link topic.subject, to: Routes.topic_path(@conn, :show, topic) %></li>
+  <% end %>
+</ul>

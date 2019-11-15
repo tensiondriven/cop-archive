@@ -18,6 +18,8 @@ defmodule CopArchiveWeb.Router do
 
     get "/", PageController, :index
 
+    resources "/forums", ForumController, only: [:index, :show]
+    resources "/topics", TopicController, only: [:index, :show]
     resources "/users", UserController, only: [:index, :show]
   end
 

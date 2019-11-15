@@ -1,0 +1,24 @@
+<h2>Topic: <%= raw(@topic.subject) %></h2>
+<dl>
+
+
+  <dt>Forum</dt>
+  <dd><%= link @topic.forum.name, to: Routes.forum_path(@conn, :show, @topic.forum) %></dd>
+
+  <dt>Subject</dt>
+  <dd><%= raw(@topic.subject) %></dd>
+
+  <dt>Extract</dt>
+  <dd><%= raw(@topic.extract) %></dd>
+
+  <dt>User</dt>
+  <dd><%= link @topic.user.displayName, to: Routes.user_path(@conn, :show, @topic.user) %></dd>
+
+  <dt>Published</dt>
+  <dd><%= @topic.liveDatetime |> date() %></dd>
+
+  <dt>Last Updated</dt>
+  <dd><%= @topic.lastUpdateDatetime |> date() %></dd>
+</dl>
+
+REPLIES

@@ -52,6 +52,9 @@ defmodule CopArchive.User do
   schema "User" do
     field :username, :string
     field :displayName, :string
+    field :registrationDate, :naive_datetime
+    has_many :area_users, CopArchive.AreaUser
+    has_many :topics, through: [:area_users, :topics]
   end
 
   def apply_clause(query, :id, oid), do: Q.where(query, [r], r.oid == ^oid)

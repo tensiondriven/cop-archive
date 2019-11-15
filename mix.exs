@@ -43,7 +43,8 @@ defmodule CopArchive.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:myxql, "~> 0.2.0"}
+      {:myxql, "~> 0.2.0"},
+      {:timex, "~> 3.5"}
     ]
   end
 

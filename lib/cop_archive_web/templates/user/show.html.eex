@@ -1,8 +1,18 @@
 <h2>User: <%= @user.displayName %></h2>
 <dl>
-    <dt>User Name</dt>
-    <dd>@user.username</dd>
+  <dt>User Name</dt>
+  <dd><%= @user.username %></dd>
 
-    <dt>Display Name</dt>
-    <dd>@user.displayName</dd>
-  </dl>
+  <dt>Display Name</dt>
+  <dd><%= @user.displayName %></dd>
+
+  <dt>Registration Date</dt>
+  <dd><%= @user.registrationDate |> date() %></dd>
+</dl>
+
+<h4>Topics</h4>
+<ul>
+  <%= for topic <- @user.topics do %>
+    <li><%= link topic.subject, to: Routes.topic_path(@conn, :show, topic) %></li>
+  <% end %>
+</ul>

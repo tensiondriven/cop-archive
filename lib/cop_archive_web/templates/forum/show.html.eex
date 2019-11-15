@@ -1,0 +1,18 @@
+<h2>Forum: <%= @forum.name %></h2>
+<dl>
+  <dt>Name</dt>
+  <dd><%= @forum.name %></dd>
+
+  <dt>Description</dt>
+  <dd><%= @forum.description |> raw() %></dd>
+
+  <dt>Intro</dt>
+  <dd><%= @forum.intro |> raw() %></dd>
+</dl>
+
+<h4>Topics</h4>
+<ul>
+  <%= for topic <- @forum.topics do %>
+    <li> <%= link raw(topic.subject), to: Routes.topic_path(@conn, :show, topic) %> <%= topic.liveDatetime |> date() %></li>
+  <% end %>
+</ul>
