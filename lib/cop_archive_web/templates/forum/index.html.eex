@@ -12,6 +12,6 @@
 
 <nav class="menu">
   <%= for forum <- @forums do %>
-    <%= link forum.name, to: Routes.forum_path(@conn, :show, forum), class: "menu-item h4" %>
+    <%= link format(forum.name), to: Routes.forum_path(@conn, :show, forum), class: "menu-item h4" %>
   <% end %>
 </nav>

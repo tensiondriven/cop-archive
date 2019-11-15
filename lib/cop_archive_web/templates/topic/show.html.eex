@@ -1,7 +1,7 @@
 <div class="Box mb-2">
     <div class="Box-header">
       <div class="float-right">
-        <%= if @topic.forum, do: link "Posted in #{@topic.forum.name}", to: Routes.forum_path(@conn, :show, @topic.forum) %>
+        <%= if @topic.forum, do: link format("Posted in #{@topic.forum.name}"), to: Routes.forum_path(@conn, :show, @topic.forum) %>
         •
         <%= link "By #{@topic.user.displayName}", to: Routes.user_path(@conn, :show, @topic.user) %>
         •
