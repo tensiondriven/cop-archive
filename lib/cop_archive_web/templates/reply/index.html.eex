@@ -2,6 +2,8 @@
 
 <ul>
   <%= for reply <- @replies do %>
-    <li><%= link reply.oid, to: Routes.reply_path(@conn, :show, reply) %></li>
+    <%= if reply.topic do %>
+      <li><%= link reply.oid, to: Routes.reply_path(@conn, :show, reply) %></li>
+    <% end %>
   <% end %>
 </ul>

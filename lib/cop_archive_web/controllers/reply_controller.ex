@@ -4,7 +4,7 @@ defmodule CopArchiveWeb.ReplyController do
   alias CopArchive.Reply
 
   def index(conn, _params) do
-    replies = Reply.all(order: :date)
+    replies = Reply.all(order: :date, preload: [:topic, :user])
     render(conn, "index.html", replies: replies)
   end
 
