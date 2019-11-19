@@ -141,8 +141,6 @@ defmodule Mix.Tasks.Render do
   end
 
   defp write(file, str) do
-    # Remove the prefix that github pages will add back in.
-    file = String.replace(file, "/cop-archive", "")
     location = "#{path()}#{file}.html"
     IO.puts("  wrote #{location}")
     File.write(location, str)
