@@ -19,6 +19,15 @@ end
 defmodule CopArchiveWeb.ForumView do
   use CopArchiveWeb, :view
   import CopArchiveWeb.SharedView
+
+  def reverse_forum_topics(forums) do
+    Enum.map(forums, &reverse_topics(&1))
+  end
+
+  def reverse_topics(forum) do
+    reversed = Enum.reverse(forum.topics)
+    %{forum | topics: reversed}
+  end
 end
 
 defmodule CopArchiveWeb.TopicView do

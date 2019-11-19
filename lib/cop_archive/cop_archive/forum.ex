@@ -39,5 +39,5 @@ defmodule CopArchive.Forum do
   end
 
   def apply_clause(query, :id, oid), do: Q.where(query, [r], r.oid == ^oid)
-  def apply_clause(query, :order, _), do: Q.order_by(query, [a], asc: a.threadingOrder)
+  def apply_clause(query, :order, :thread), do: Q.order_by(query, [a], asc: a.threadingOrder)
 end
