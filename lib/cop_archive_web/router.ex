@@ -13,7 +13,7 @@ defmodule CopArchiveWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/cop-archive", CopArchiveWeb do
+  scope "/", CopArchiveWeb do
     pipe_through :browser
 
     get "/", ForumController, :index

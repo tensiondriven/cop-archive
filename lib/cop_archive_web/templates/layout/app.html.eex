@@ -7,12 +7,12 @@
     <title>Holacracy Community of Practice Archive</title>
     <!-- TODO: Remove the extra css after publishing. This is included to play nice with Github pages.-->
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
-    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/cop-archive/css/app.css") %>"/>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
   </head>
   <body>
     <main role="main" class="container">
       <div class="Header grid-top-menu">
-        <img src="/cop-archive/images/Holacracy_Mark_-_White__1_.png", id="logo" class="Header-item"/>
+        <img src="/images/Holacracy_Mark_-_White__1_.png", id="logo" class="Header-item"/>
         <%= link "Holacracy Community of Practice Archive, 2015-2019", to: Routes.forum_path(@conn, :index), class: "Header-item text-white ml-1 h3" %></h3>
         <a href="https://community.holacracy.org" class="Header-item text-white text-bold">Community</a>
         <a href="https://holacracy.org" class="Header-item text-white text-bold">Holacracy Web Site</a>

@@ -4,10 +4,10 @@
     <span role="tab" title="<%= @user.displayName %>" class="UnderlineNav-item selected h4">
       Topics & Replies by <%= @user.displayName %>
     </span>
-    <a href="/cop-archive/forum" role="tab" title="Forum List" class="UnderlineNav-item h4">
+    <a href="/forum" role="tab" title="Forum List" class="UnderlineNav-item h4">
       Forum List
     </a>
-    <a href="/cop-archive/user" role="tab" title="User List" class="UnderlineNav-item h4">
+    <a href="/user" role="tab" title="User List" class="UnderlineNav-item h4">
       User List
     </a>
   </div>

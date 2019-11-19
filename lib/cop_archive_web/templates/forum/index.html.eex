@@ -4,7 +4,7 @@
     <span role="tab" title="Forum List" class="UnderlineNav-item selected h4">
       Forum List
     </span>
-    <a href="/cop-archive/user" role="tab" title="User List" class="UnderlineNav-item h4">
+    <a href="/user" role="tab" title="User List" class="UnderlineNav-item h4">
       User List
     </a>
   </div>
