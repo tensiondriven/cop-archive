@@ -22,6 +22,9 @@ defmodule CopArchiveWeb.Router do
     resources "/topic", TopicController, only: [:index, :show]
     resources "/reply", ReplyController, only: [:show]
     resources "/user", UserController, only: [:index, :show]
+
+    get "/sitemap.xml", PageController, :sitemap
+    get "/sitemap1.xml", PageController, :sitemap1
   end
 
   # Other scopes may use custom stacks.

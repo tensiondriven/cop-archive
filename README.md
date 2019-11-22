@@ -19,6 +19,18 @@ mix render
 
 This will update all the files in `/docs`.
 
+### To render out the sitemap,
+
+```
+mix sitemap
+```
+
+This will write `sitemap.xml` and `sitemap1.xml` to `/docs`.
+
+Then commit everything and push.  The sitemap will automatically be updated on Github.
+
+### To publish,
+
 Then commit everything and push.  The conent will automatically be updated on Github.
 
 This static site uses Google Custom Search for the search box.  You may need to set up a new Google Custom Search if you need to change anything with it.
@@ -29,3 +41,10 @@ Important: Because the master branch is protected on github, you must force push
 When you do this, Github loses the "Custom Domain" setting, which is needed for the site to be served properly.  Every time you push to master, you must reset "Custom domain" to `community-archive.holacracy.org`  on https://github.com/holacracyone/cop-archive/settings
 
 Questions? <jonathan.yankovich@gmail.com>
+
+### Links
+
+- https://community-archive.holacracy.org/
+- https://github.com/holacracyone/cop-archive/settings
+- https://cse.google.com/cse/all
+- https://github.com/ikeikeikeike/sitemap

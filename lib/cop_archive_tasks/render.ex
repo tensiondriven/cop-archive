@@ -2,7 +2,7 @@ defmodule Mix.Tasks.Render do
   use Mix.Task
 
   alias CopArchive.{Forum, Topic, Reply, User}
-  alias CopArchiveWeb.{ForumView, TopicView, ReplyView, UserView, PageView, LayoutView}
+  alias CopArchiveWeb.{ForumView, TopicView, ReplyView, UserView, LayoutView}
 
   use CopArchiveWeb, :view
 

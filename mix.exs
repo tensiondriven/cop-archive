@@ -20,7 +20,7 @@ defmodule CopArchive.MixProject do
   def application do
     [
       mod: {CopArchive.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :sitemap]
     ]
   end
 
@@ -46,7 +46,8 @@ defmodule CopArchive.MixProject do
       {:myxql, "~> 0.2.0"},
       {:timex, "~> 3.5"},
       {:phoenix_html_simplified_helpers, "~> 2.1.0"},
-      {:html_sanitize_ex, "~> 1.3.0-rc3"}
+      {:html_sanitize_ex, "~> 1.3.0-rc3"},
+      {:sitemap, "~> 1.1"}
     ]
   end
 
