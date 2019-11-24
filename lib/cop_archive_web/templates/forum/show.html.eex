@@ -1,4 +1,4 @@
-<nav class="UnderlineNav mb-4">
+<nav class="UnderlineNav mb-2">
   <div class="UnderlineNav-body">
     <span role="tab" title="<%= format @forum.name %>" class="UnderlineNav-item selected h4">
       <%= format @forum.name %>

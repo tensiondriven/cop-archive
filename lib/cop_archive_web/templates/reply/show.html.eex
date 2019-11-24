@@ -1,39 +1,21 @@
-<h2>Reply</h2>
-<dl>
-  <dt>oid</dt>
-  <dd><%= @reply.oid %></dd>
-
-  <dt>Topic Subject</dt>
-  <dd><%= link @reply.topic.subject, to: Routes.topic_path(@conn, :show, @reply.topic) %></dd>
-
-  <dt>User</dt>
-  <dd><%= link @reply.user.displayName, to: Routes.user_path(@conn, :show, @reply.user) %></dd>
-
-  <dt>Published</dt>
-  <dd><%= date @reply.liveDatetime %></dd>
-
-  <dt>Body</dt>
-  <dd><%= format @reply.body %></dd>
-</dl>
-
 <div class="Box mb-2">
-    <div class="Box-header">
-      <div class="float-right">
-        <%= if @reply.topic.forum, do: link "Reply posted in #{@reply.topic.forum.name}", to: Routes.forum_path(@conn, :show, @reply.topic.forum) %>
-        •
-        <%= link "By #{@reply.user.displayName}", to: Routes.user_path(@conn, :show, @reply.user) %>
-        •
-        <%= date @reply.liveDatetime %>
-      </div>
-      <h4>Reply to <%= link @reply.topic.subject, to: Routes.topic_path(@conn, :show, @reply.topic) %></h4>
-      <div>
-        <%= link "By #{@reply.topic.user.displayName}", to: Routes.user_path(@conn, :show, @reply.topic.user) %>
-        <span class="float-right">
-          Topic posted <%= date @reply.topic.liveDatetime %>
-        </span>
-      </div>
+  <div class="Box-header">
+    <div class="float-right">
+      <%= if @reply.topic.forum, do: link "Reply posted in #{@reply.topic.forum.name}", to: Routes.forum_path(@conn, :show, @reply.topic.forum) %>
+      •
+      <%= link "By #{@reply.user.displayName}", to: Routes.user_path(@conn, :show, @reply.user) %>
+      •
+      <%= date @reply.liveDatetime %>
     </div>
-    <div class="Box-row post-content">
-      <%= if @reply.body, do: format(@reply.body), else: format("<i>This reply as no content.</i>") %>
+    <h4>Reply to <%= link @reply.topic.subject, to: Routes.topic_path(@conn, :show, @reply.topic) %></h4>
+    <div>
+      <%= link "By #{@reply.topic.user.displayName}", to: Routes.user_path(@conn, :show, @reply.topic.user) %>
+      <span class="float-right">
+        Topic posted <%= date @reply.topic.liveDatetime %>
+      </span>
     </div>
+  </div>
+  <div class="Box-row post-content">
+    <%= if @reply.body, do: format(@reply.body), else: format("<i>This reply as no content.</i>") %>
+  </div>
 </div>

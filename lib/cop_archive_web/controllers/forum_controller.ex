@@ -13,6 +13,6 @@ defmodule CopArchiveWeb.ForumController do
       Forum.get(id, preload: [topics: [:replies, :user]])
       |> CopArchiveWeb.ForumView.reverse_topics()
 
-    forum = render(conn, "show.html", forum: forum)
+    render(conn, "show.html", forum: forum)
   end
 end
