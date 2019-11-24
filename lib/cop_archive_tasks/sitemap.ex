@@ -36,7 +36,7 @@ defmodule Mix.Tasks.Sitemap do
   def generate_forum_paths() do
     forums =
       Forum.all(order: :thread, preload: [topics: [:replies, :user]])
-      |> CopArchiveWeb.ForumView.reverse_forum_topics()
+      |> CopArchiveWeb.ForumView.sort_forum_topics()
 
     ["/"] ++
       Enum.map(forums, fn forum ->

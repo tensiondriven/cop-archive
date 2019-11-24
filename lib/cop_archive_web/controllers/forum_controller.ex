@@ -11,7 +11,7 @@ defmodule CopArchiveWeb.ForumController do
   def show(conn, %{"id" => id}) do
     forum =
       Forum.get(id, preload: [topics: [:replies, :user]])
-      |> CopArchiveWeb.ForumView.reverse_topics()
+      |> CopArchiveWeb.ForumView.sort_topics()
 
     render(conn, "show.html", forum: forum)
   end

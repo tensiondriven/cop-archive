@@ -1,4 +1,4 @@
-<div class="Box mb-2">
+<div class="Box mt-2 mb-4">
     <div class="Box-header">
       <div class="float-right">
         <%= if @topic.forum, do: link format("Posted in #{@topic.forum.name}"), to: Routes.forum_path(@conn, :show, @topic.forum) %>
@@ -13,7 +13,6 @@
       <%= if @topic.composition, do: format(@topic.composition.body), else: format("<i>This post as no content.</i>") %>
     </div>
 </div>
-
 
 <div class="Box mb-2">
   <div class="Box-header h5">

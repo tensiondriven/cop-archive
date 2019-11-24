@@ -21,7 +21,7 @@ defmodule Mix.Tasks.Render do
   defp render_forums() do
     forums =
       Forum.all(order: :thread, preload: [topics: [:replies, :user]])
-      |> CopArchiveWeb.ForumView.reverse_forum_topics()
+      |> CopArchiveWeb.ForumView.sort_forum_topics()
 
     str =
       Phoenix.View.render_to_string(ForumView, "index.html",

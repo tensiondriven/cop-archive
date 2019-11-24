@@ -20,13 +20,15 @@ defmodule CopArchiveWeb.ForumView do
   use CopArchiveWeb, :view
   import CopArchiveWeb.SharedView
 
-  def reverse_forum_topics(forums) do
-    Enum.map(forums, &reverse_topics(&1))
+  def sort_forum_topics(forums) do
+    Enum.map(forums, &sort_topics(&1))
   end
 
-  def reverse_topics(forum) do
-    reversed = Enum.reverse(forum.topics)
-    %{forum | topics: reversed}
+  def sort_topics(forum) do
+    sorted =
+      Enum.sort(forum.topics, &(:gt == NaiveDateTime.compare(&1.liveDatetime, &2.liveDatetime)))
+
+    %{forum | topics: sorted}
   end
 end
 
