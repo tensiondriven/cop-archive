@@ -1,4 +1,4 @@
-<div class="Box mt-2 mb-4">
+<div class="Box mt-4 mb-4">
   <div class="Box-header">
     <div class="float-right">
       <%= if @reply.topic.forum, do: link "Reply posted in #{@reply.topic.forum.name}", to: Routes.forum_path(@conn, :show, @reply.topic.forum) %>

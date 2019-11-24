@@ -1,4 +1,4 @@
-<div class="Box mt-2 mb-4">
+<div class="Box mt-4 mb-4">
     <div class="Box-header">
       <div class="float-right">
         <%= if @topic.forum, do: link format("Posted in #{@topic.forum.name}"), to: Routes.forum_path(@conn, :show, @topic.forum) %>
