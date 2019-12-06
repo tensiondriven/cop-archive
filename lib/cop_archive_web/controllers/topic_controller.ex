@@ -9,7 +9,10 @@ defmodule CopArchiveWeb.TopicController do
   end
 
   def show(conn, %{"id" => id}) do
-    topic = Topic.get_by!(slug: id, preload: [:forum, :composition, :user, replies: :user])
+    topic =
+      Topic.get_by!(slug: id, preload: [:forum, :composition, :user, replies: :user])
+      |> CopArchiveWeb.TopicView.sort_replies()
+
     render(conn, "show.html", topic: topic)
   end
 end

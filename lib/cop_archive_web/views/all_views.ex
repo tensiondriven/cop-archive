@@ -35,6 +35,17 @@ end
 defmodule CopArchiveWeb.TopicView do
   use CopArchiveWeb, :view
   import CopArchiveWeb.SharedView
+
+  def sort_topic_replies(topics) do
+    Enum.map(topics, &sort_replies(&1))
+  end
+
+  def sort_replies(topic) do
+    sorted =
+      Enum.sort(topic.replies, &(:lt == NaiveDateTime.compare(&1.liveDatetime, &2.liveDatetime)))
+
+    %{topic | replies: sorted}
+  end
 end
 
 defmodule CopArchiveWeb.ReplyView do

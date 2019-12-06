@@ -45,7 +45,9 @@ defmodule Mix.Tasks.Sitemap do
   end
 
   defp generate_topic_paths() do
-    topics = Topic.all(order: :subject, preload: [:forum, :composition, :user, replies: :user])
+    topics =
+      Topic.all(order: :subject, preload: [:forum, :composition, :user, replies: :user])
+      |> CopArchiveWeb.TopicView.sort_topic_replies()
 
     ["/topic"] ++
       Enum.map(topics, fn topic ->
